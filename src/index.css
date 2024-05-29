@@ -24,11 +24,11 @@
 }
 
 body {
-  margin: 0;
+  margin: 0 auto;
   min-width: 320px;
+  max-width: 1380px;
   min-height: 100vh;
 }
-
 
 @media (prefers-color-scheme: light) {
   :root {
