@@ -1,12 +1,15 @@
 import { Outlet } from "react-router-dom";
 import HeaderComponent from "../components/Header";
+import { Container } from "@chakra-ui/react";
 
 const MainLayout = () => {
    return (
-      <div>
-         <HeaderComponent />
-         <Outlet />
-      </div>
+      <>
+         <Container maxW='container.lg'>
+            <HeaderComponent />
+            <Outlet />
+         </Container>
+      </>
    )
 }
 

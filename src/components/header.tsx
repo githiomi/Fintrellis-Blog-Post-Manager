@@ -5,7 +5,7 @@ import { FaSun, FaUser } from 'react-icons/fa'
 const HeaderComponent = () => {
 
    const [authState, setAuthState] = useState(false);
-   const logo = "./public/fintrellis_logo.png"
+   const logo = "/fintrellis_logo.png"
 
    return (
       <div className="w-full px-8 flex justify-between">
