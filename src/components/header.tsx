@@ -1,5 +1,6 @@
-import { Avatar, Flex, Spacer, Text } from "@chakra-ui/react";
-import { FaSun } from 'react-icons/fa'
+import { Avatar, Button, Flex, Spacer, Text } from "@chakra-ui/react";
+import { FaArrowRight } from 'react-icons/fa'
+import { redirect } from "react-router-dom";
 
 const HeaderComponent = () => {
 
@@ -16,13 +17,17 @@ const HeaderComponent = () => {
 
          <Flex alignItems='center'>
 
-            <FaSun className="text-blue-300 text-3xl hover:text-blue-400 cursor-pointer duration-200 ease-in-out hover:ease-in mx-10" />
+            {/* <FaSun className="text-blue-300 text-3xl hover:text-blue-400 cursor-pointer duration-200 ease-in-out hover:ease-in mx-10" /> */}
 
             <Flex alignItems='center' gap='1rem'>
-               <Avatar name={username} src={profile_picture} />
+               <Avatar name={username} src={profile_picture} bg={'blue.300'} />
 
                <Text className="uppercase font-semibold" >{username}</Text>
             </Flex>
+
+            <Button variant={'outline'} colorScheme="blue" mx={5} rightIcon={<FaArrowRight />} onClick={() => redirect('/login')}>
+               Logout
+            </Button>
 
          </Flex>
 

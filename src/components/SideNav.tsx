@@ -1,11 +1,13 @@
-import { Divider, Flex, Image, Text } from '@chakra-ui/react';
+import { Divider, Flex, Image, List, ListIcon, ListItem, Text } from '@chakra-ui/react';
+import { FaEdit, FaHome } from 'react-icons/fa';
+import { NavLink } from 'react-router-dom';
 
 function SideNavComponent() {
 
    const logo_url = '/fintrellis_logo.png';
 
    return (
-      <div>
+      <Flex direction={{ base: 'row', md: 'column' }} justifyContent={'space-between'} alignItems={'center'}>
 
          <Flex direction={{ base: 'row', md: 'column' }} alignItems="center" gap={5}>
             <Image
@@ -17,9 +19,28 @@ function SideNavComponent() {
             <Text as="h1" textColor="white" fontSize="2rem" className='uppercase'>Fintrellis</Text>
          </Flex>
 
-         <Divider display={{ base: 'hidden', md: 'block' }} mt={10} />
+         <Divider my={10} />
 
-      </div>
+         <List spacing='2rem' fontSize='1.3rem' color={'white'}>
+
+            <ListItem>
+               <NavLink
+                  to={'/home'}>
+                  <ListIcon as={FaHome} />
+                  Home
+               </NavLink>
+            </ListItem>
+            <ListItem>
+               <NavLink
+                  to={'/new'}>
+                  <ListIcon as={FaEdit} />
+                  Create New Post
+               </NavLink>
+            </ListItem>
+
+         </List>
+
+      </Flex>
    )
 }
 
