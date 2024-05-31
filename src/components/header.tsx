@@ -1,36 +1,36 @@
+import { Avatar, Box, Flex, Spacer, Text } from "@chakra-ui/react";
 import { useState } from "react"
-import { FaSun, FaUser } from 'react-icons/fa'
-
+import { FaSun } from 'react-icons/fa'
 
 const HeaderComponent = () => {
 
    const [authState, setAuthState] = useState(false);
-   const logo = "/fintrellis_logo.png"
+   const profile_picture = "/profile_picture.png"
+   const username = "Daniel Githiomi"
 
    return (
-      <div className="w-full px-8 flex justify-between">
 
-         <div className="flex py-4 items-center gap-4 cursor-pointer hover:scale-[1.01] ease-in-out duration-300">
-            <img src={logo} alt='This is the Application Logo' className="w-[50px]" />
+      <Flex className="w-full px-8 flex justify-between">
 
-            <h1 className="text-2xl uppercase tracking-wide" onClick={() => setAuthState((current) => !current)}>Blog Post Manager</h1>
-         </div>
+         <h1 className="text-2xl uppercase tracking-wide" onClick={() => setAuthState((current) => !current)}>Blog Post Manager</h1>
+
+         <Spacer />
 
          <div className="flex items-center">
 
             <FaSun className="text-blue-300 text-2xl hover:text-blue-400 cursor-pointer duration-200 ease-in-out hover:ease-in" />
 
-            {authState && <div className="flex items-center justify-end ml-4 bg-gray-800 py-2 px-4 rounded-lg">
+            {authState &&
+               <Box alignContent="center">
+                  <Avatar name={username} src={profile_picture} />
 
-               <p className="text-xl">Daniel Githiomi</p>
-               <FaUser className="bg-white text-black rounded-full text-2xl mx-4 p-1" />
-
-            </div>
+                  <Text>Daniel Githiomi</Text>
+               </Box>
             }
 
          </div>
 
-      </div>
+      </Flex>
    )
 }
 
