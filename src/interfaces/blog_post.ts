@@ -1,8 +1,8 @@
 export interface BlogPost {
    id: number;
-   postAuthor: string;
-   postTitle: string;
-   postBody: string;
-   createdAt: Date;
+   author: string;
+   title: string;
+   body: string;
    likes: number;
+   createdAt: Date;
 }

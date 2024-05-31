@@ -3,6 +3,7 @@ import HomePage from './pages/HomePage';
 import MainLayout from './layouts/MainLayout';
 import AboutPage from './pages/AboutPage';
 import LoginPage from './pages/LoginPage';
+import { blogPostLoader } from './services/postsLoader';
 
 // Custom Router Setup
 const appRouter = createBrowserRouter(
@@ -10,7 +11,7 @@ const appRouter = createBrowserRouter(
     <Route path='/' element={<MainLayout />}>
 
       <Route index element={<LoginPage />} />
-      <Route path='/home' element={<HomePage />} />
+      <Route path='/home' element={<HomePage />} loader={blogPostLoader} />
       <Route path='/about' element={<AboutPage />} />
 
     </Route>
