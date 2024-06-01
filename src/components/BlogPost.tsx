@@ -1,6 +1,6 @@
-import { Avatar, Card, CardBody, CardFooter, CardHeader, Flex, HStack, Heading, Text } from '@chakra-ui/react'
+import { Avatar, Button, Card, CardBody, CardFooter, CardHeader, Flex, HStack, Heading, Text } from '@chakra-ui/react'
 import { BlogPost } from '../interfaces/blog_post'
-import { FaHeart } from 'react-icons/fa6'
+import { FaHeart, FaRegEye } from 'react-icons/fa6'
 import { useState } from 'react'
 
 type BlogPostComponentProps = {
@@ -11,13 +11,14 @@ export default function BlogPostComponent({ blogPost }: BlogPostComponentProps) 
 
    const [isLiked, setIsLiked] = useState(blogPost.userLiked);
    const [likes, setLikes] = useState(blogPost.likes);
-
+   const shortDesc: string = `${blogPost.body.substring(0, 100)}...`
    const likesClicked = () => {
       if (isLiked)
          setLikes((_currentLikes) => _currentLikes -= 1)
       else
          setLikes((_currentLikes) => _currentLikes += 1)
 
+      console.log(blogPost.createdAt)
       setIsLiked((_currentIsLiked) => !_currentIsLiked);
    }
 
@@ -38,17 +39,22 @@ export default function BlogPostComponent({ blogPost }: BlogPostComponentProps) 
          </CardHeader>
 
          <CardBody color={'gray.500'} _hover={{ color: 'gray.700' }}>
+
+            <Text as={'p'} className='text-sm italic mb-4 underline'>Created on: <span className='font-bold'>{new Date(blogPost.createdAt).toUTCString().slice(0, 16)}</span> </Text>
+
             <Text as='p'>
-               {blogPost.body}
+               {shortDesc}
             </Text>
          </CardBody>
 
-         <CardFooter>
+         <CardFooter className='flex items-center justify-between'>
 
             <HStack onClick={likesClicked}>
                {isLiked ? <FaHeart className='text-red-600' /> : <FaHeart />}
                <Text> {likes} </Text>
             </HStack>
+
+            <Button variant={'outline'} color={'blue.400'} rightIcon={<FaRegEye />}>View</Button>
 
          </CardFooter>
 
