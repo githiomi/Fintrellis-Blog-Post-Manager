@@ -6,6 +6,6 @@ export const blogPostLoader = async (): Promise<BlogPost[]> => {
 
    const response = await fetch(url);
 
-   return response.json();
+   return await response.json();
 
 }

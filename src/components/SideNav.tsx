@@ -23,7 +23,7 @@ function SideNavComponent() {
 
          <List spacing='2rem' fontSize='1.3rem' color={'white'}>
 
-            <ListItem>
+            <ListItem mb={0}>
                <NavLink
                   to={'/home'}>
                   <ListIcon as={FaHome} />
@@ -32,7 +32,7 @@ function SideNavComponent() {
             </ListItem>
             <ListItem>
                <NavLink
-                  to={'/new'}>
+                  to={'/'}>
                   <ListIcon as={FaEdit} />
                   Create New Post
                </NavLink>

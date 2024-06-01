@@ -1,15 +1,16 @@
 import { useLoaderData } from "react-router-dom";
 import { BlogPost } from "../interfaces/blog_post";
-import { Text } from "@chakra-ui/react";
+import BlogPostComponent from "../components/BlogPost";
+import { SimpleGrid } from "@chakra-ui/react";
 
 const HomePage = () => {
 
    const blogPosts: BlogPost[] = useLoaderData();
 
    return (
-      <>
-         {blogPosts && blogPosts.map((_blogpost: BlogPost) => <Text>{_blogpost.title}</Text>)}
-      </>
+      <SimpleGrid minChildWidth={'300px'} gap={'2rem'} >
+         {blogPosts && blogPosts.map((_blogPost: BlogPost) => <BlogPostComponent key={_blogPost.id} blogPost={_blogPost} />)}
+      </SimpleGrid>
    )
 }
 
