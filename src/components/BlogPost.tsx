@@ -2,7 +2,7 @@ import { Avatar, Button, Card, CardBody, CardFooter, CardHeader, Flex, HStack, H
 import { BlogPost } from '../interfaces/blog_post'
 import { FaHeart, FaRegEye } from 'react-icons/fa6'
 import { useState } from 'react'
-import { redirect } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 type BlogPostComponentProps = {
    blogPost: BlogPost
@@ -55,7 +55,9 @@ export default function BlogPostComponent({ blogPost }: BlogPostComponentProps) 
                <Text> {likes} </Text>
             </HStack>
 
-            <Button onClick={() => redirect(`/posts/${blogPost.id}`)} variant={'outline'} color={'blue.400'} rightIcon={<FaRegEye />}>View</Button>
+            <Link to={`/posts/${blogPost.id}`}>
+               <Button variant={'outline'} color={'blue.400'} rightIcon={<FaRegEye />}>View</Button>
+            </Link>
 
          </CardFooter>
 
