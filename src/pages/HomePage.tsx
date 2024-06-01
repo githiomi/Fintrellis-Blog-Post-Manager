@@ -8,7 +8,7 @@ const HomePage = () => {
    const blogPosts: BlogPost[] = useLoaderData();
 
    return (
-      <SimpleGrid minChildWidth={'300px'} gap={'2rem'} >
+      <SimpleGrid minChildWidth={'350px'} gap={'2rem'} >
          {blogPosts && blogPosts.map((_blogPost: BlogPost) => <BlogPostComponent key={_blogPost.id} blogPost={_blogPost} />)}
       </SimpleGrid>
    )

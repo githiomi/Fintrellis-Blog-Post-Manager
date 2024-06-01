@@ -40,12 +40,12 @@ const PostPageComponent = () => {
                <Heading ml={'1rem'} fontSize={'xl'} className="uppercase">{blogPost.title}</Heading>
             </HStack>
 
-            <Text color={'gray.400'} _hover={{ color: 'gray.800' }} className="transition duration-500">
+            <Text color={'gray.500'} _hover={{ color: 'gray.800' }} className="transition duration-500">
                {blogPost.body}
             </Text>
 
             <HStack mt={'2rem'}>
-               <Avatar bg={'blue.400'} name={blogPost.author} />
+               <Avatar bg={'blue.400'} color={'white'} name={blogPost.author} />
 
                <VStack ml={'.5rem'} alignItems={'start'}>
                   <Text fontSize={'xs'} color={'gray.500'}>Created by:</Text>

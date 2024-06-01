@@ -28,7 +28,7 @@ export default function BlogPostComponent({ blogPost }: BlogPostComponentProps) 
 
          <CardHeader>
             <Flex alignItems={'center'}>
-               <Avatar mr={'1rem'} bg={'blue.400'} src='/fintellis_logo.png' name={blogPost.author} />
+               <Avatar mr={'1rem'} bg={'blue.400'} src='/fintellis_logo.png' color={'white'} name={blogPost.author} />
 
                <Flex direction={'column'} gap={'.2rem'}>
                   <Text as={'p'} color={'gray.400'} fontSize={'xs'}>Created by:</Text>
@@ -40,6 +40,8 @@ export default function BlogPostComponent({ blogPost }: BlogPostComponentProps) 
          </CardHeader>
 
          <CardBody color={'gray.500'} _hover={{ color: 'gray.700' }}>
+
+            <Text fontSize={'lg'} mb={'1rem'} color={'black'} className='font-semibold'>{blogPost.title}</Text>
 
             <Text as={'p'} className='text-sm italic mb-4 underline'>Created on: <span className='font-bold'>{new Date(blogPost.createdAt).toUTCString().slice(0, 16)}</span> </Text>
 
