@@ -25,7 +25,7 @@ function SideNavComponent() {
 
             <ListItem mb={0}>
                <NavLink
-                  to={'/home'}>
+                  to={'/posts'}>
                   <ListIcon as={FaHome} />
                   Home
                </NavLink>

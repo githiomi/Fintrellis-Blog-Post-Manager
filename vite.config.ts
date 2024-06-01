@@ -7,6 +7,13 @@ export default defineConfig({
   server: {
     watch: {
       usePolling: true
+    },
+    proxy: {
+      '/json-server-api': {
+        target: 'http://localhost:8000',
+        changeOrigin: true,
+        rewrite: (path: string) => path.replace(/^\/json-server-api/, '')
+      }
     }
   }
 })
