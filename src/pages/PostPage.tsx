@@ -3,7 +3,6 @@ import { BlogPost } from "../interfaces/blog_post";
 import { Badge, Button, Grid, GridItem, HStack, Heading, VStack, Text, Flex, Divider, Avatar, Spacer } from "@chakra-ui/react";
 import { FaHeart, FaTrash } from "react-icons/fa6";
 import { FaEdit } from "react-icons/fa";
-import { color } from "framer-motion";
 import { useState } from "react";
 
 const PostPageComponent = () => {

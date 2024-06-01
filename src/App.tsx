@@ -1,12 +1,12 @@
 import { Route, createBrowserRouter, createRoutesFromElements, RouterProvider } from 'react-router-dom';
 import HomePage from './pages/HomePage';
 import MainLayout from './layouts/RootLayout';
-import AboutPage from './pages/AboutPage';
 import LoginPage, { createAction } from './pages/LoginPage';
 import PostPage from './pages/PostPage';
 import { allBlogPostLoader, singleBlogPostLoader } from './services/postsLoader';
 import AuthLayout from './layouts/AuthLayout';
 import ErrorPage from './pages/ErrorPage';
+import CreatePostPage from './pages/CreatePostPage';
 
 // Custom Router Setup
 const appRouter = createBrowserRouter(
@@ -16,7 +16,7 @@ const appRouter = createBrowserRouter(
       <Route path='/' element={<MainLayout />}>
         <Route path='/posts' element={<HomePage />} loader={allBlogPostLoader} action={createAction} />
         <Route path='/posts/:id' element={<PostPage />} loader={singleBlogPostLoader} />
-        <Route path='/about' element={<AboutPage />} />
+        <Route path='/create' element={<CreatePostPage />} loader={allBlogPostLoader} />
         <Route path='*' element={<ErrorPage />} />
       </Route>
 

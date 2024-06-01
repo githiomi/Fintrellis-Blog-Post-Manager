@@ -1,6 +1,6 @@
 import { Avatar, Button, Flex, Spacer, Text } from "@chakra-ui/react";
 import { FaArrowRight } from 'react-icons/fa'
-import { Link, redirect } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 interface HeaderProps {
    username: string

@@ -5,7 +5,7 @@ import SideNavComponent from "../components/SideNav";
 
 const MainLayout = () => {
 
-   const username: string = localStorage.getItem("username");
+   const username: string = localStorage.getItem("username") || "";
 
    return (
       <Grid templateColumns="repeat(6, 1fr)" bg="gray.50">

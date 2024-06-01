@@ -38,7 +38,7 @@ function SideNavComponent({ isAuthenticated }: SideNavProps) {
                   </ListItem>
                   <ListItem>
                      <NavLink
-                        to={'/'}>
+                        to={'/create'}>
                         <ListIcon as={FaEdit} />
                         Create New Post
                      </NavLink>
