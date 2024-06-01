@@ -2,7 +2,7 @@ import { Route, createBrowserRouter, createRoutesFromElements, RouterProvider } 
 import HomePage from './pages/HomePage';
 import MainLayout from './layouts/RootLayout';
 import AboutPage from './pages/AboutPage';
-import LoginPage from './pages/LoginPage';
+import LoginPage, { createAction } from './pages/LoginPage';
 import PostPage from './pages/PostPage';
 import { allBlogPostLoader, singleBlogPostLoader } from './services/postsLoader';
 import AuthLayout from './layouts/AuthLayout';
@@ -14,7 +14,7 @@ const appRouter = createBrowserRouter(
     <Route>
 
       <Route path='/' element={<MainLayout />}>
-        <Route index element={<HomePage />} loader={allBlogPostLoader} />
+        <Route path='/posts' element={<HomePage />} loader={allBlogPostLoader} action={createAction} />
         <Route path='/posts/:id' element={<PostPage />} loader={singleBlogPostLoader} />
         <Route path='/about' element={<AboutPage />} />
         <Route path='*' element={<ErrorPage />} />

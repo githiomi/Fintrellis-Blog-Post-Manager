@@ -1,11 +1,14 @@
 import { Avatar, Button, Flex, Spacer, Text } from "@chakra-ui/react";
 import { FaArrowRight } from 'react-icons/fa'
-import { Link } from "react-router-dom";
+import { Link, redirect } from "react-router-dom";
 
-const HeaderComponent = () => {
+interface HeaderProps {
+   username: string
+}
+
+const HeaderComponent = ({ username }: HeaderProps) => {
 
    const profile_picture = "/profile_picture.png"
-   const username = "Daniel Githiomi"
 
    return (
 
@@ -19,14 +22,14 @@ const HeaderComponent = () => {
 
             {/* <FaSun className="text-blue-300 text-3xl hover:text-blue-400 cursor-pointer duration-200 ease-in-out hover:ease-in mx-10" /> */}
 
-            <Flex alignItems='center' gap='1rem'>
+            <Flex alignItems='center' gap='1rem' className="hover:scale-[1.02] duration-300 cursor-pointer">
                <Avatar name={username} src={profile_picture} bg={'blue.300'} />
 
                <Text className="uppercase font-semibold" >{username}</Text>
             </Flex>
 
             <Link to={'/auth'}>
-               <Button variant={'outline'} colorScheme="blue" mx={5} rightIcon={<FaArrowRight />}>
+               <Button variant={'outline'} colorScheme="blue" mx={5} rightIcon={<FaArrowRight />} onClick={() => localStorage.removeItem("username")}>
                   Logout
                </Button>
             </Link>

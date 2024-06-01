@@ -1,25 +1,45 @@
-import { Button, Input, InputGroup, InputLeftAddon } from '@chakra-ui/react'
-import { useState } from 'react'
-import { FaArrowRight } from 'react-icons/fa';
+import { Button, Flex, FormControl, FormErrorMessage, FormLabel, Input, InputGroup, InputLeftElement } from '@chakra-ui/react'
+import { FaArrowRight, FaUser } from 'react-icons/fa';
+import { Form, redirect } from 'react-router-dom';
 
 const LoginPage = () => {
 
-   const [username, setUsername] = useState("");
-
    return (
-      <div className="flex-1 grid place-items-center">
+      <Flex minH='100vh' className="flex flex-col gap-8 items-center justify-center">
 
-         <InputGroup size='md' className='uppercase'>
-            <InputLeftAddon>Username</InputLeftAddon>
-            <Input placeholder='Eg: John Doe' type='text' onChange={(e) => setUsername(e.target.value)} />
-         </InputGroup>
+         <Form method='post' action='/posts'>
 
-         <Button rightIcon={<FaArrowRight />} colorScheme='teal' onClick={() => console.log(username)}>
-            Login
-         </Button>
+            <FormControl isRequired mb={'2rem'}>
+               <FormLabel color={'blue.400'}>Username:</FormLabel>
 
-      </div>
+               <InputGroup size={'lg'}>
+                  <InputLeftElement pointerEvents={'none'}>
+                     <FaUser color={'blue.400'} />
+                  </InputLeftElement>
+                  <Input name='usernameInput' errorBorderColor='red.600' focusBorderColor='blue.400' placeholder='Eg: John Doe' type='text' />
+               </InputGroup>
+
+               <FormErrorMessage>This field is required</FormErrorMessage>
+            </FormControl>
+
+            <Button minW={'100%'} type='submit' rightIcon={<FaArrowRight />} bg={'blue.400'} color={'white'}>
+               Login
+            </Button>
+         </Form>
+
+      </Flex>
    )
 }
 
-export default LoginPage
+const createAction = async ({ request }) => {
+   const data = await request.formData();
+
+   const username = data.get('usernameInput');
+
+   localStorage.setItem('username', username);
+
+   return redirect('/posts')
+
+}
+
+export { LoginPage as default, createAction }
