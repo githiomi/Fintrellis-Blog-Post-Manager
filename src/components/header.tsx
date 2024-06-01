@@ -1,6 +1,6 @@
 import { Avatar, Button, Flex, Spacer, Text } from "@chakra-ui/react";
 import { FaArrowRight } from 'react-icons/fa'
-import { redirect } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const HeaderComponent = () => {
 
@@ -25,9 +25,11 @@ const HeaderComponent = () => {
                <Text className="uppercase font-semibold" >{username}</Text>
             </Flex>
 
-            <Button variant={'outline'} colorScheme="blue" mx={5} rightIcon={<FaArrowRight />} onClick={() => redirect('/login')}>
-               Logout
-            </Button>
+            <Link to={'/auth'}>
+               <Button variant={'outline'} colorScheme="blue" mx={5} rightIcon={<FaArrowRight />}>
+                  Logout
+               </Button>
+            </Link>
 
          </Flex>
 
